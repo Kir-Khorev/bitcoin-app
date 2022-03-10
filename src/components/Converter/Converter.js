@@ -1,0 +1,61 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import Preloader from '../../components/Preloader';
+import { Button, Form, InputGroup, FormControl } from 'react-bootstrap';
+import getAllСryptocurrencies from '../../api/getAllСryptocurrencies';
+import CurrencyRow from './CurrencyRow';
+import './Converter.css'
+
+function Converter() {
+    const allCurrencies = useSelector(state => state.currencies.data);
+    const dispatch = useDispatch();
+    const [amount, setAmount] = useState(1);
+    const [fromCurrency, setFromCurrency] = useState();
+    const [toCurrency, setToCurrency] = useState();
+
+    useEffect(() => {
+        dispatch(getAllСryptocurrencies())
+    }, []);
+
+    // Set Amount:
+    let incAmount = () => setAmount(Number(amount) + 1);
+    let decAmount = () => amount > 0 ? setAmount(amount - 1) : '';
+    let handleChange = (e) => {
+        (e.target.validity.valid) ? setAmount(e.target.value) : setAmount(amount);
+    };
+
+    if (!allCurrencies) return <Preloader />;
+
+    return (
+        <div className="converter">
+            <InputGroup size="lg" className='converterAmount'>
+                <Button onClick={() => incAmount()} variant="info">+</Button>
+                <Button onClick={() => decAmount()} variant="info">-</Button>
+                <FormControl  type="text" pattern="[0-9]*" className="formControl" value={amount} onChange={handleChange} placeholder="1" />
+                <InputGroup.Text id="basic-addon1">Amount</InputGroup.Text>
+
+            </InputGroup>
+            <div className='currencyRow'>
+                {/* First dropdown */}
+                <CurrencyRow currencyOptions={allCurrencies}
+                    selectedCurrency={fromCurrency}
+                    onChangeCurrency={e => {
+                        setFromCurrency(e.target.value)
+                        console.log(e.target.value);
+                    }}
+                />
+                {/* Second dropdown */}
+                <CurrencyRow currencyOptions={allCurrencies}
+                    selectedCurrency={toCurrency}
+                    onChangeCurrency={e => {
+                        setToCurrency(e.target.value)
+                        console.log(e.target.value)
+                    }}
+                />
+            </div>
+            <h1>Result: {fromCurrency && toCurrency ? ((fromCurrency * amount) / toCurrency) : 0}</h1>
+        </div>
+    );
+}
+
+export default Converter;

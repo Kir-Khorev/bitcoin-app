@@ -1,28 +1,18 @@
-import { Button, Card, Navbar, Container } from 'react-bootstrap';
+import { Navbar, Container } from 'react-bootstrap';
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import axios from "axios";
 import Preloader from './Preloader';
 import getATHData from '../api/getATHData';
+// import getAllСryptocurrencies from '../api/getAllСryptocurrencies';
 
 const Header = () => {
     const content = useSelector(state => state); //this hook gives us redux store state
     const dispatch = useDispatch(); //this hook gives us dispatch method
 
-    // function getATHData() {
-    //     return dispatch => {
-    //         axios.get('https://tstapi.cryptorank.io/v0/coins/bitcoin')
-    //             .then(res =>
-    //                 dispatch({
-    //                     type: "FETCH_ATH_DATA",
-    //                     data: res.data
-    //                 })
-    //             );
-    //     }
-    // }
-
     useEffect(() => {
         dispatch(getATHData())
+        // dispatch(getAllСryptocurrencies())
     }, []);
 
     if (!content.ath.data) return <Preloader/>;
