@@ -4,7 +4,8 @@ import Preloader from '../../components/Preloader';
 import { Button, Form, InputGroup, FormControl } from 'react-bootstrap';
 import getAllСryptocurrencies from '../../api/getAllСryptocurrencies';
 import CurrencyRow from './CurrencyRow';
-import './Converter.css'
+import icon from '../../assets/icon/arrow.svg';
+import './Converter.css';
 
 function Converter() {
     const allCurrencies = useSelector(state => state.currencies.data);
@@ -31,10 +32,11 @@ function Converter() {
             <InputGroup size="lg" className='converterAmount'>
                 <Button onClick={() => incAmount()} variant="info">+</Button>
                 <Button onClick={() => decAmount()} variant="info">-</Button>
-                <FormControl  type="text" pattern="[0-9]*" className="formControl" value={amount} onChange={handleChange} placeholder="1" />
+                <FormControl type="text" pattern="[0-9]*" className="formControl" value={amount} onChange={handleChange} placeholder="1" />
                 <InputGroup.Text id="basic-addon1">Amount</InputGroup.Text>
 
             </InputGroup>
+            <h2>Choose currencies:</h2>
             <div className='currencyRow'>
                 {/* First dropdown */}
                 <CurrencyRow currencyOptions={allCurrencies}
@@ -44,6 +46,7 @@ function Converter() {
                         console.log(e.target.value);
                     }}
                 />
+                <img src={icon} alt='arrow-icon' className='currencyRow--icon'/>
                 {/* Second dropdown */}
                 <CurrencyRow currencyOptions={allCurrencies}
                     selectedCurrency={toCurrency}

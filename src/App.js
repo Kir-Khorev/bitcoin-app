@@ -1,24 +1,10 @@
-import logo from './logo.svg';
+import logo from './logo2.svg';
 import './App.css';
 import Header from './components/Header';
 import Converter from './components/Converter/Converter';
 import Watchlist from './components/Watchlist/Watchlist';
 import NavBar from './components/Navbar';
-import {
-  HashRouter as Router, Link, Route, Routes, Redirect
-} from 'react-router-dom'
-
-// function App() {
-//   const api = 'https://api.cryptorank.io/v1/currencies?api_key=e3440fe2cc290ca0ad530b27be5f05cc00db9ecbcbb0d1babeaddede1b21'
-
-//   return (
-//     <div className="App">
-//       <Header />
-
-
-//     </div>
-//   );
-// }
+import { HashRouter as Router, Link, Route, Routes, Redirect } from 'react-router-dom'
 
 export default function App() {
   return (
@@ -43,7 +29,7 @@ function Home() {
   return (
     <header className="App-header">
       <div>
-        123
+        <h1>Home Page. React Bitcoin SPA</h1>
         <img src={logo} className="App-logo" alt="logo" style={{ width: '100px', margin: 'auto' }} />
       </div>
     </header>
