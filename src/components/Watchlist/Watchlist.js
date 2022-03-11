@@ -25,8 +25,6 @@ export default function Watchlist() {
 
     if (!allCurrencies) return <Preloader />;
 
-    console.log(allCurrencies);
-
     return (
         <div className='tableWrapper'>
             <h1>Watchlist</h1>

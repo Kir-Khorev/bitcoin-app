@@ -41,19 +41,13 @@ function Converter() {
                 {/* First dropdown */}
                 <CurrencyRow currencyOptions={allCurrencies}
                     selectedCurrency={fromCurrency}
-                    onChangeCurrency={e => {
-                        setFromCurrency(e.target.value)
-                        console.log(e.target.value);
-                    }}
+                    onChangeCurrency={e => setFromCurrency(e.target.value)}
                 />
-                <img src={icon} alt='arrow-icon' className='currencyRow--icon'/>
+                <img src={icon} alt='arrow-icon' className='currencyRow--icon' />
                 {/* Second dropdown */}
                 <CurrencyRow currencyOptions={allCurrencies}
                     selectedCurrency={toCurrency}
-                    onChangeCurrency={e => {
-                        setToCurrency(e.target.value)
-                        console.log(e.target.value)
-                    }}
+                    onChangeCurrency={e => setToCurrency(e.target.value)}
                 />
             </div>
             <h1>Result: {fromCurrency && toCurrency ? ((fromCurrency * amount) / toCurrency) : 0}</h1>
