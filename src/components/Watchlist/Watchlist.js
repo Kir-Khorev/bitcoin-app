@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import { useDispatch, useSelector } from "react-redux";
 import Preloader from '../../components/Preloader';
 import './Watchlist.css';
 import getAllСryptocurrencies from '../../api/getAllСryptocurrencies';
-
 
 // Helper funcs
 function priceFormatter(cell) {
@@ -23,6 +22,7 @@ export default function Watchlist() {
         dispatch(getAllСryptocurrencies())
     }, []);
 
+    // Preload
     if (!allCurrencies) return <Preloader />;
 
     return (
@@ -39,5 +39,3 @@ export default function Watchlist() {
         </div>
     )
 }
-
-

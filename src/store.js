@@ -1,23 +1,5 @@
-const initialState = {
-    ath: {},
-    currencies: {}
-}
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware } from "redux";
+import reducer from "./reducer/reducer";
 
-function reducer(state = initialState, action) {
-    switch (action.type) {
-        case "FETCH_ATH_DATA":
-            return {
-                ...state,
-                ath: action.data
-            }
-        case "FETCH_CRYPTO_DATA":
-            return {
-                ...state,
-                currencies: action.data
-            }
-        default:
-            return state;
-    }
-}
-
-export default reducer;
+export const store = createStore(reducer, applyMiddleware(thunk));

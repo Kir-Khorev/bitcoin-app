@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.navbarHeader{
+  display: flex;
+  flex-direction: column;
+}
+
+.navbarHeader-fromto{
+  visibility: visible;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbarHeader{
+    flex-direction: row;
+  }
+}

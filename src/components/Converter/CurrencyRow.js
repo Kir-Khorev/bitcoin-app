@@ -1,12 +1,8 @@
 import React from 'react';
-import { Button, Form, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 function CurrencyRow(props) {
-    const {
-        currencyOptions,
-        selectedCurrency,
-        onChangeCurrency,
-    } = props
+    const { currencyOptions, selectedCurrency, onChangeCurrency, } = props
 
     return (
         <div className='currencySelect currencySelectWrapper' value={selectedCurrency} onChange={onChangeCurrency}>

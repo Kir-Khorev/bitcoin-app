@@ -1,10 +1,8 @@
 import { Navbar, Container } from 'react-bootstrap';
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import axios from "axios";
 import Preloader from './Preloader';
 import getATHData from '../api/getATHData';
-// import getAllСryptocurrencies from '../api/getAllСryptocurrencies';
 
 const Header = () => {
     const content = useSelector(state => state); //this hook gives us redux store state
@@ -12,7 +10,6 @@ const Header = () => {
 
     useEffect(() => {
         dispatch(getATHData())
-        // dispatch(getAllСryptocurrencies())
     }, []);
 
     if (!content.ath.data) return <Preloader/>;
@@ -28,14 +25,14 @@ const Header = () => {
 
     return (
         <Navbar>
-            <Container>
-                <Navbar.Brand href="#"><p>Bitcoin ATH:</p>${content ? content.ath.data.athPrice.USD.toFixed(2) : 'No data'}</Navbar.Brand>
-                <Navbar.Collapse className="justify-content-end">
+            <Container className='navbarHeader'>
+                <Navbar.Brand style={{fontSize: "18px"}} href="#"><p>Bitcoin ATH:</p>${content ? content.ath.data.athPrice.USD.toFixed(2) : 'No data'}</Navbar.Brand>
+                <Navbar.Collapse className="justify-content-end navbarHeader-fromto" style={{marginRight: "35px", fontWeight: "600", fontSize: '16px'}}>
                     <Navbar.Text style={{marginRight: "35px"}}>
-                        <p style={{fontWeight:"600"}}>From ATH:</p><span>{fromATH.toFixed(2)}%</span>
+                        <p>From ATH:</p><span>{fromATH.toFixed(2)}%</span>
                     </Navbar.Text>
                     <Navbar.Text>
-                        <p style={{fontWeight:"600"}}>To ATH:</p><span>{toATH.toFixed(2)}%</span>
+                        <p>To ATH:</p><span>{toATH.toFixed(2)}%</span>
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Container>

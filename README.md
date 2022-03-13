@@ -1,3 +1,23 @@
+# Crypto Currencies App
+SPA made with React (Hooks), Redux. Test task for cryptorank. Two pages: converter and Watch list.
+
+> - [Live Demo](https://bitcoin-app-nine.vercel.app/) :camera_flash:
+
+![screenshot](src/assets/img/screenshot.png "screenshot")
+
+## Practiced:
+- React (hooks)
+- Redux 
+- API
+- React-Bootstrap 
+
+### Authors
+Kir Khorev
+
+## License
+This project is licensed under Unlicense license.
+Copyright (c) 2022
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
