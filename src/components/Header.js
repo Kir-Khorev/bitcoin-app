@@ -29,10 +29,10 @@ const Header = () => {
                 <Navbar.Brand style={{fontSize: "18px"}} href="#"><p>Bitcoin ATH:</p>${content ? content.ath.data.athPrice.USD.toFixed(2) : 'No data'}</Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end navbarHeader-fromto" style={{marginRight: "35px", fontWeight: "600", fontSize: '16px'}}>
                     <Navbar.Text style={{marginRight: "35px"}}>
-                        <p>From ATH:</p><span>{fromATH.toFixed(2)}%</span>
+                        <p>From All-Time High:</p><span>{fromATH.toFixed(2)}%</span>
                     </Navbar.Text>
                     <Navbar.Text>
-                        <p>To ATH:</p><span>{toATH.toFixed(2)}%</span>
+                        <p>To All-Time High:</p><span>{toATH.toFixed(2)}%</span>
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Container>

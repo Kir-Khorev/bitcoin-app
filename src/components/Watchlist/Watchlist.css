@@ -1,5 +1,11 @@
 .tableWrapper {
-    max-width: 80%;
+    max-width: 90%;
+    max-height: 90%;
     margin: auto;
     overflow: scroll;
+}
+
+.tableHeader{
+    width: 100%;
+    color: rgba(0, 0, 0, 0.822);
 }

@@ -11,8 +11,8 @@ function Converter() {
     const allCurrencies = useSelector(state => state.currencies.data);
     const dispatch = useDispatch();
     const [amount, setAmount] = useState(1);
-    const [fromCurrency, setFromCurrency] = useState();
-    const [toCurrency, setToCurrency] = useState();
+    const [fromCurrency, setFromCurrency] = useState(1);
+    const [toCurrency, setToCurrency] = useState(1);
 
     useEffect(() => {
         dispatch(getAllСryptocurrencies())
@@ -40,14 +40,12 @@ function Converter() {
             <h2>Choose currencies:</h2>
             <div className='currencyRow'>
                 {/* First dropdown */}
-                <CurrencyRow currencyOptions={allCurrencies}
-                    selectedCurrency={fromCurrency}
+                <CurrencyRow currencyOptions={allCurrencies} selectedCurrency={fromCurrency}
                     onChangeCurrency={e => setFromCurrency(e.target.value)}
                 />
                 <img src={icon} alt='arrow-icon' className='currencyRow--icon' />
                 {/* Second dropdown */}
-                <CurrencyRow currencyOptions={allCurrencies}
-                    selectedCurrency={toCurrency}
+                <CurrencyRow currencyOptions={allCurrencies} selectedCurrency={toCurrency}
                     onChangeCurrency={e => setToCurrency(e.target.value)}
                 />
             </div>

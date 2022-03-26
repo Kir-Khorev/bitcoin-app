@@ -28,7 +28,7 @@ export default function Watchlist() {
     return (
         <div className='tableWrapper'>
             <h1>Watchlist</h1>
-            <BootstrapTable data={allCurrencies} striped={true} hover={true}>
+            <BootstrapTable className="tableHeader" data={allCurrencies} striped={true} hover={true}>
                 <TableHeaderColumn dataField="id" isKey={true} dataAlign="center" dataSort={true}>ID</TableHeaderColumn>
                 <TableHeaderColumn dataField="name" dataSort={true}>Name</TableHeaderColumn>
                 <TableHeaderColumn dataField='values' dataFormat={priceFormatter}>Price</TableHeaderColumn>
