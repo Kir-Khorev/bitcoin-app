@@ -1,10 +1,10 @@
-import './App.css';
-import Header from './components/Header';
-import Home from './components/Home';
-import Converter from './components/Converter/Converter';
-import Watchlist from './components/Watchlist/Watchlist';
-import NavBar from './components/Navbar';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import "./App.css";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Converter from "./components/Converter/Converter";
+import Watchlist from "./components/Watchlist/Watchlist";
+import NavBar from "./components/Navbar";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
@@ -23,4 +23,3 @@ export default function App() {
     </div>
   );
 }
-
